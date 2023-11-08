@@ -63,22 +63,22 @@ public class teleOp extends LinearOpMode {
             //ATEF IS SMOKING CRACK
 
             if(gamepad1.right_bumper) {
-                arm.pivot.setPosition(1.0);
-            }
-            if(gamepad1.left_bumper) {
-                arm.pivot.setPosition(0.55);
+                arm.testPiv.setPower(0.7);
+            }else if(gamepad1.left_bumper) {
+                arm.testPiv.setPower(-0.7);
+            }else {
+                arm.testPiv.setPower(0);
             }
 
 
             if(gamepad1.a) {
                 arm.deposit.setPower(1);
-            }
-            if(gamepad1.x) {
+            }else if(gamepad1.x) {
                 arm.deposit.setPower(0);
-            }
-            if(gamepad1.b) {
+            }else if(gamepad1.b) {
                 arm.deposit.setPower(-0.3);
             }
+
             if(gamepad1.y) {
                 shooter.setPower(-1);
             }else {

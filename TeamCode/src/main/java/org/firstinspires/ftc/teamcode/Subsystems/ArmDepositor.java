@@ -9,15 +9,16 @@ import com.qualcomm.robotcore.hardware.Servo;
 public class ArmDepositor {
     public DcMotor leftLifter;
     public DcMotor rightLifter;
-    public Servo pivot;
-    public CRServo deposit;
+    //public Servo pivot;
+    public CRServo deposit,testPiv;
     public ArmDepositor(HardwareMap hw) {
         leftLifter = hw.get(DcMotor.class, "leftLift");
         rightLifter = hw.get(DcMotor.class, "rightLift");
         leftLifter.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         rightLifter.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         deposit = hw.get(CRServo.class, "deposit");
-        pivot = hw.get(Servo.class, "pivot");
+        //pivot = hw.get(Servo.class, "pivot");
+        testPiv = hw.get(CRServo.class, "cpivot");
         rightLifter.setDirection(DcMotorSimple.Direction.REVERSE);
     }
 
