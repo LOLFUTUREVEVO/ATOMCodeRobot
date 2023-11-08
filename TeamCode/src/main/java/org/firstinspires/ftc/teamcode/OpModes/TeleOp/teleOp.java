@@ -23,6 +23,7 @@ public class teleOp extends LinearOpMode {
     public ArmDepositor arm;
     public Climber cl;
     public PIDController pid;
+    public DcMotor shooter;
 
 
     @Override
@@ -31,6 +32,7 @@ public class teleOp extends LinearOpMode {
         rb = new Robot(hardwareMap);
         cl = new Climber(hardwareMap);
         arm = new ArmDepositor(hardwareMap);
+        shooter = hardwareMap.get(DcMotor.class, "shooter");
         FtcDashboard dashboard =FtcDashboard.getInstance();
         Telemetry dashboardTelemetry = dashboard.getTelemetry();
 
@@ -46,7 +48,7 @@ public class teleOp extends LinearOpMode {
             if(gamepad1.dpad_up) {
                 cl.setPwr(1);
             } else if(gamepad1.dpad_down) {
-                cl.setPwr(-0.4);
+                cl.setPwr(-1);
             } else {
                 cl.setPwr(0.0);
             }//
@@ -75,7 +77,12 @@ public class teleOp extends LinearOpMode {
                 arm.deposit.setPower(0);
             }
             if(gamepad1.b) {
-                arm.deposit.setPower(-0.25);
+                arm.deposit.setPower(-0.3);
+            }
+            if(gamepad1.y) {
+                shooter.setPower(-1);
+            }else {
+                shooter.setPower(0);
             }
 
 
