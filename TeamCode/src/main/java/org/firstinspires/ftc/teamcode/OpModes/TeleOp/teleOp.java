@@ -45,10 +45,10 @@ public class teleOp extends LinearOpMode {
 
             rb.setDrivePower(gamepad1.left_stick_y, -gamepad1.left_stick_x, -gamepad1.right_stick_x*0.8);
 
-            if(gamepad1.dpad_up) {
-                cl.setPwr(1);
-            } else if(gamepad1.dpad_down) {
+            if(gamepad2.dpad_up || gamepad1.dpad_up ) {
                 cl.setPwr(-1);
+            } else if(gamepad2.dpad_down || gamepad1.dpad_down ) {
+                cl.setPwr(1);
             } else {
                 cl.setPwr(0.0);
             }//
@@ -61,11 +61,12 @@ public class teleOp extends LinearOpMode {
             }
 
             //ATEF IS SMOKING CRACK
+            //
 
-            if(gamepad1.right_bumper) {
-                arm.testPiv.setPower(0.7);
-            }else if(gamepad1.left_bumper) {
-                arm.testPiv.setPower(-0.7);
+            if(gamepad1.left_bumper) {
+                arm.testPiv.setPower(0.5);
+            }else if(gamepad1.right_bumper) {
+                arm.testPiv.setPower(-0.5);
             }else {
                 arm.testPiv.setPower(0);
             }
@@ -76,10 +77,10 @@ public class teleOp extends LinearOpMode {
             }else if(gamepad1.x) {
                 arm.deposit.setPower(0);
             }else if(gamepad1.b) {
-                arm.deposit.setPower(-0.3);
+                arm.deposit.setPower(-0.15);
             }
 
-            if(gamepad1.y) {
+            if(gamepad2.y) {
                 shooter.setPower(-1);
             }else {
                 shooter.setPower(0);

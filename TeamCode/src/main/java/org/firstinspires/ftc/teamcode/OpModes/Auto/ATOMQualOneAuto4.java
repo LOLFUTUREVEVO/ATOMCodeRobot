@@ -10,8 +10,8 @@ import org.firstinspires.ftc.teamcode.Subsystems.Climber;
 import org.firstinspires.ftc.teamcode.Subsystems.Robot;
 
 @Config
-@Autonomous(name = "RightRed")
-public class ATOMQualOneAuto2 extends OpMode {
+@Autonomous(name = "LeftBlue")
+public class ATOMQualOneAuto4 extends OpMode {
 
 
     public Robot dt;
@@ -32,7 +32,17 @@ public class ATOMQualOneAuto2 extends OpMode {
 
     @Override
     public void start() {
-        dt.moveInches(-3,3,3,-3);
+        dt.moveInches(3,-3,-3,3);
+        arm.deposit.setPower(-0.4);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        arm.deposit.setPower(0);
+        dt.moveInches(1,1,1,1);
+        dt.moveInches(1.5,-1.5,-1.5,1.5);
+
     }
 
     @Override

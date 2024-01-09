@@ -1,7 +1,9 @@
 package org.firstinspires.ftc.teamcode.OpModes.Auto;
 
 import com.acmerobotics.dashboard.config.Config;
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.Subsystems.ArmDepositor;
@@ -9,6 +11,7 @@ import org.firstinspires.ftc.teamcode.Subsystems.Climber;
 import org.firstinspires.ftc.teamcode.Subsystems.Robot;
 
 @Config
+@Autonomous(name = "leftRed")
 public class ATOMQualOneAuto extends OpMode {
 
 
@@ -30,7 +33,11 @@ public class ATOMQualOneAuto extends OpMode {
 
     @Override
     public void start() {
-
+        dt.moveInches(-3.75, -3.75, -3.75,-3.75);
+        dt.moveInches(-1.6, 1.61, -1.61, 1.61);
+        dt.moveInches(-5, -5, -5, -5);
+        dt.moveInches(-1,1,1,-1);
+        dt.moveInches(-2.5,-2.5,-2.5,-2.5);
     }
 
     @Override
@@ -38,13 +45,6 @@ public class ATOMQualOneAuto extends OpMode {
 
 
         ElapsedTime PidTimer = new ElapsedTime();
-
-
-
-
-
-
-
 
     }
 
@@ -57,9 +57,5 @@ public class ATOMQualOneAuto extends OpMode {
 
 
 
-
-    public void sequence1() {
-
-    }
 
 }
